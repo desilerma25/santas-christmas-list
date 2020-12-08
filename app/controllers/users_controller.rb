@@ -1,16 +1,7 @@
 class UsersController < ApplicationController
 
-  get '/users/:slug' do
-    @user = User.find_by_slug(params[:slug])
-    erb :'users/show' #what is this
-  end
-
   get '/signup' do
-    if !logged_in?
-      erb :'/users/signup'
-    else
-      redirect '/gifts'
-    end
+    erb :'users/signup'
   end
 
   post '/signup' do
@@ -29,9 +20,10 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by_email(pararms["email"])
+    user = User.find_by_email(params["email"])
     if user && user.authenticate(params["password"])
       session[:user_id] = user.id
+      redirect '/gifts'
     else
       redirect '/login'
     end

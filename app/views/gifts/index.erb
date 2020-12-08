@@ -1,2 +1,5 @@
 <h1>All Gifts</h1>
-<a href="/gifts/new">Add A Gift To Your List</a>
+<% @gifts.each do |gift| %>
+<a href="/gifts/<%=gift.id%>"><%= gift.title %></a>
+<% end %><br>
+<br><a href="/gifts/new">Add A Gift To Your List</a>

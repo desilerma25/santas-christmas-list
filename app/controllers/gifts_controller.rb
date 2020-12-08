@@ -11,11 +11,10 @@ class GiftsController < ApplicationController
     erb :"/gifts/new" # display view
   end
 
-  post "/gifts" do # posts new gift
+  post "/gifts/new" do # posts new gift
     need_login
     gift = Gift.new(params)
-    # gift = current_user.gifts.build(params) # only use if you understand build, recommended
-    gift.user_id = session[:user_id] # recommended 
+    gift.user_id = session[:user_id]
     gift.save
     redirect "/gifts" #makes new get req.
   end

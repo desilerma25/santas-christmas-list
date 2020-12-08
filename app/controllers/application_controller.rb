@@ -14,6 +14,7 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
+    #allows views to access these methods
     def logged_in?
       !!current_user
     end

@@ -9,7 +9,7 @@ class GiftsController < ApplicationController
     end
   end
 
-  get "/gifts/new" do
+  get "/gifts/new" do # form to create new gift
     if !logged_in? # use !, bc if not logged in will redirect, which acts like a return
       redirect '/login'
     else
@@ -17,7 +17,7 @@ class GiftsController < ApplicationController
     end
   end
 
-  post "/gifts" do
+  post "/gifts" do # posts new gift
     if !logged_in?
       redirect '/login'
     end
@@ -29,37 +29,38 @@ class GiftsController < ApplicationController
     end
   end
 
-  get "/gifts/:id" do
-    if logged_in?
-      @gift = Gift.find(params["id"]) 
-      erb :"/gifts/show"
-    else
+  get "/gifts/:id" do # get info on idv. gift 
+    if !logged_in?
       redirect '/login'
     end
+      @gift = Gift.find(params["id"]) 
+      erb :"/gifts/show"
   end
 
-  # GET: /gifts/5/edit
-  get "/gifts/:id/edit" do
-    if logged_in?
-      @gift = Gift.find(params["id"])
-      erb :"/gifts/edit"
   
+  get "/gifts/:id/edit" do # get form to edit indv. gift
+    if !logged_in?
+      redirect '/login'
     end
+    @gift = Gift.find(params["id"])
+    erb :"/gifts/edit"
   end
 
-  # PATCH: /gifts/5
-  patch "/gifts/:id" do
-    if logged_in?
-      @gift = Gift.find(params["id"])
-      redirect "/gifts/:id"
+  
+  patch "/gifts/:id" do # submit change to gift (edited)
+    if !logged_in?
+      redirect '/login'
     end
+    @gift = Gift.find(params["id"])
+    erb :"/gifts/:id"
   end
 
-  # DELETE: /gifts/5/delete
-  delete "/gifts/:id/delete" do
-    if logged_in?
-      @gift = Gift.find(params["id"])
-      redirect "/gifts"
+  
+  delete "/gifts/:id/delete" do # deletes a specific gift
+    if !logged_in?
+      redirect '/login'
     end
+    @gift = Gift.find(params["id"])
+    redirect "/gifts"
   end
 end

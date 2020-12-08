@@ -7,3 +7,10 @@
         <li><b>Already a user? <a href='/login'>Log In</a></li>
         <li><b>New to the site? <a href='/signup'>Sign Up</a></li>
       <% end %>
+
+      <% if session[:user_id] == @gift.user_id %>
+
+        <a href="/gifts/edit/<%= @gift.id%>" Edit gift </a>
+        <a href="/gifts/delete/<%= @gift.id%>" Delete gift </a>
+        
+      <% end %>

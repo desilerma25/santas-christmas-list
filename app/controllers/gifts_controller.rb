@@ -11,20 +11,19 @@ class GiftsController < ApplicationController
     erb :"/gifts/new" # display view
   end
 
-  post "/gifts/new" do # posts new gift
-    need_login
-    gift = Gift.new(params)
-    gift.user_id = session[:user_id]
-    gift.save
-    redirect "/gifts" #makes new get req.
-  end
-
   get "/gifts/:id" do # get info on idv. gift 
     need_login
     @gift = Gift.find(params["id"]) 
     erb :"/gifts/show"
   end
 
+  post "/gifts" do # posts new gift #changed to /gifts from /gifts/new 
+    need_login
+    gift = Gift.new(params)
+    gift.user_id = session[:user_id]
+    gift.save
+    redirect "/gifts" #makes new get req.
+  end
   
   get "/gifts/:id/edit" do # get form to edit indv. gift
     @gift = Gift.find(params["id"])
@@ -37,7 +36,7 @@ class GiftsController < ApplicationController
     @gift = Gift.find(params["id"])
     unauthorized
     @gift.update(params)
-    erb :"/gifts/#{@gift.id}"
+    erb :"/gifts/#{@gift.id}" #redirects to indv. gift to show update 
   end
 
   

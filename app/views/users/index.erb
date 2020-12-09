@@ -1,1 +1,4 @@
 <h1>Users on Santa's List:</h1>
+<% @users.each do |user| %>
+<a href="/user/<%=user.id%>"><%= user.username %></a>
+<% end %><br>

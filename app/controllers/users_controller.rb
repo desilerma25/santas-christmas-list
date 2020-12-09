@@ -30,6 +30,10 @@ class UsersController < ApplicationController
   end
 
   get "/users" do
+    if !logged_in?
+      redirect "/login"
+    end
+    @users = User.all
     erb :"/users/index"
   end
 

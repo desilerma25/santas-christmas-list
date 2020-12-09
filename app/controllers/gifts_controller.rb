@@ -1,6 +1,6 @@
 class GiftsController < ApplicationController
 
-  get "/gifts" do # maybe remove if statement?
+  get "/gifts" do 
     need_login
     @gifts = Gift.all
     erb :"/gifts/index" # is it necessary for index to be added

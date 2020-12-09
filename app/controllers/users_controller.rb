@@ -37,11 +37,12 @@ class UsersController < ApplicationController
     erb :"/users/index"
   end
 
-  get "/users/:id" do # get info on idv. user 
+  get "/users/:id" do # get info on idv. user
     if !logged_in?
       redirect "/login"
     end
     @user = User.find(params["id"]) 
+    # @gifts = Gift.find_by(user_id: params["user_id"]) # added 
     erb :"/users/show"
   end
 

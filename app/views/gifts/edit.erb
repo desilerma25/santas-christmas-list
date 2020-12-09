@@ -1,6 +1,7 @@
 <h1>Insert the form to edit an instance of your model here.</h1>
       <% if logged_in? %>
-        <a href="/gifts/new">Add A Gift To Your List</a>
+        <h3>Edit your gift below:</h3><br>
+        <form method="POST" action="/">
         <a href="/logout">Log Out</a>
       <% else %>
         <h3>Please Log in or Sign up first!</h3>

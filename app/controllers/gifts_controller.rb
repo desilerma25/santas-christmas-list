@@ -51,7 +51,7 @@ class GiftsController < ApplicationController
   private
 
   def unauthorized
-    if gift.user != current_user
+    if @gift.user != current_user
       redirect '/gifts'
     end
   end

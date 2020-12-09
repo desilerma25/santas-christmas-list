@@ -1,8 +1,13 @@
-<h1>This is the show page for an individual gift for your user.</h1>
+<h2>Gift Title: <%= @gift.title %></h2>
+<h4>Gift Description: <%= @gift.description %></h4>
       
       <% if session[:user_id] == @gift.user_id %>
 
-        <a href="/gifts/edit/<%= @gift.id%>" Edit gift </a>
-        <a href="/gifts/delete/<%= @gift.id%>" Delete gift </a>
+        <a href="/gifts/<%= @gift.id %>/edit"> Edit gift </a>
+
+        <form method="POST" action="/gifts/<%= @gift.id %>">
+          <input type="hidden" name="_method" value ="DELETE">
+          <input type="submit" value="Delete this gift">
+        </form>
         
       <% end %>

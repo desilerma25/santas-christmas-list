@@ -1,16 +1,9 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
-      <% if logged_in? %>
-        <h3>Edit your gift below:</h3><br>
-        <form method="POST" action="/gifts/<%= @gift.id %>">
-            <input type="hidden" name="_method" value="PATCH">
-            Title: <input type="text" name="gift[title]" value="<% @gift.title %>">
-            Description: <input type="text" name="gift[description]" value="<% @gift.description %>">
-            <input type="submit" value="Update Gift">
+<h2>Edit your gift below:</h2><br>
 
-        <a href="/logout">Log Out</a>
-      <% else %>
-        <h3>Please Log in or Sign up first!</h3>
-        <ul>
-        <li><b>Already a user? <a href='/login'>Log In</a></li>
-        <li><b>New to the site? <a href='/signup'>Sign Up</a></li>
-      <% end %>
+    <form method="POST" action="/gifts/<%= @gift.id %>">
+        <input type="hidden" name="_method" value="PUT">
+        Description: <input type="text" name="gift[description]" value="<%= @gift.description %>">
+        <input type="submit" value="Update Gift">
+    </form><br>
+
+    <a href="/logout">Log Out</a>

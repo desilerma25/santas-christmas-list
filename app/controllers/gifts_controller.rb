@@ -1,11 +1,5 @@
 class GiftsController < ApplicationController
 
-  get "/gifts" do 
-    need_login
-    @gifts = Gift.all
-    erb :"/gifts/index" # is it necessary for index to be added
-  end
-
   get "/gifts/new" do # form to create new gift
     need_login
     erb :"/gifts/new" # display view
@@ -20,9 +14,12 @@ class GiftsController < ApplicationController
   post "/gifts" do # posts new gift #changed to /gifts from /gifts/new 
     need_login
     gift = Gift.new(params)
-    gift.user_id = session[:user_id]
-    gift.save
-    redirect "/gifts" #makes new get req.
+    if gift.title.blank? || gift.description.blank?
+      redirect "/gifts/new"
+    end
+      gift.user_id = session[:user_id]
+      gift.save
+      redirect "/gifts/#{gift.id}" #makes new get req.
   end
   
   get "/gifts/:id/edit" do # get form to edit indv. gift

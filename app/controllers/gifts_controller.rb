@@ -3,7 +3,7 @@ class GiftsController < ApplicationController
   get "/gifts" do # maybe remove if statement?
     need_login
     @gifts = Gift.all
-    erb :"/gifts/index"
+    erb :"/gifts/index" # is it necessary for index to be added
   end
 
   get "/gifts/new" do # form to create new gift
@@ -52,13 +52,13 @@ class GiftsController < ApplicationController
 
   def unauthorized
     if @gift.user != current_user
-      redirect '/gifts'
+      redirect "/gifts"
     end
   end
    
   def need_login
     if !logged_in?
-      redirect '/login'
+      redirect "/login"
     end
   end
   

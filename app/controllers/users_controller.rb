@@ -37,6 +37,14 @@ class UsersController < ApplicationController
     erb :"/users/index"
   end
 
+  get "/users/:id" do # get info on idv. user 
+    if !logged_in?
+      redirect "/login"
+    end
+    @user = User.find(params["id"]) 
+    erb :"/users/show"
+  end
+
   get "/logout" do
     session.clear
     redirect "/"

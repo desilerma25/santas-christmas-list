@@ -52,11 +52,5 @@ class GiftsController < ApplicationController
       redirect "/gifts"
     end
   end
-   
-  def need_login
-    if !logged_in?
-      redirect "/login"
-    end
-  end
   
 end

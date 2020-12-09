@@ -35,7 +35,7 @@ class GiftsController < ApplicationController
   patch "/gifts/:id" do # submit change to gift (edited)
     @gift = Gift.find(params["id"])
     unauthorized
-    @gift.update(params)
+    @gift.update(description: params["description"])
     erb :"/gifts/#{@gift.id}" #redirects to indv. gift to show update 
   end
 

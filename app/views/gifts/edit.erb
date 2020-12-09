@@ -1,7 +1,12 @@
 <h1>Insert the form to edit an instance of your model here.</h1>
       <% if logged_in? %>
         <h3>Edit your gift below:</h3><br>
-        <form method="POST" action="/">
+        <form method="POST" action="/gifts/<%= @gift.id %>">
+            <input type="hidden" name="_method" value="PATCH">
+            Title: <input type="text" name="gift[title]" value="<% @gift.title %>">
+            Description: <input type="text" name="gift[description]" value="<% @gift.description %>">
+            <input type="submit" value="Update Gift">
+
         <a href="/logout">Log Out</a>
       <% else %>
         <h3>Please Log in or Sign up first!</h3>

@@ -13,14 +13,16 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: mediumaquamarine;
+    background-image: url('../images/santa-reindeer.jpg');
+    background-repeat: repeat;
+    /* background-color: mediumaquamarine; */
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
   }
 
   .wrapper {
-    background: #fff;
+    background: rgb(80, 161, 120);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -61,7 +63,7 @@
   }
 
   .sidebar {
-    background: #eee;
+    background: rgba(158, 189, 130, 0.795);
     border: 1px solid #ccc;
     float: right;
     padding: 2.08333333333%; /* 5px / 240px */

@@ -26,6 +26,7 @@ class UsersController < ApplicationController
       redirect "/users" 
     else
       redirect "/login"
+      binding.pry
     end
   end
 
@@ -36,6 +37,7 @@ class UsersController < ApplicationController
   end
 
   get "/users/:id" do # get info on idv. user
+    binding.pry
     need_login # added helper method
     @user = User.find(params["id"]) 
     # @gifts = Gift.find_by(user_id: params["user_id"]) # added 

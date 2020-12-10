@@ -31,16 +31,14 @@ class UsersController < ApplicationController
   end
 
   get "/users" do
-    need_login # added helper method 
+    need_login
     @users = User.all
     erb :"/users/index"
   end
 
-  get "/users/:id" do # get info on idv. user
-    binding.pry
-    need_login # added helper method
+  get "/users/:id" do
+    need_login
     @user = User.find(params["id"]) 
-    # @gifts = Gift.find_by(user_id: params["user_id"]) # added 
     erb :"/users/show"
   end
 

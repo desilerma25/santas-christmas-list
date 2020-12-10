@@ -1,17 +1,17 @@
 class GiftsController < ApplicationController
 
-  get "/gifts/new" do # form to create new gift
+  get "/gifts/new" do
     need_login
-    erb :"/gifts/new" # display view
+    erb :"/gifts/new"
   end
 
-  get "/gifts/:id" do # get info on idv. gift 
+  get "/gifts/:id" do
     need_login
     @gift = Gift.find(params["id"]) 
     erb :"/gifts/show"
   end
 
-  post "/gifts" do # posts new gift #changed to /gifts from /gifts/new 
+  post "/gifts" do
     need_login
     gift = Gift.new(params)
     if gift.title.blank? || gift.description.blank?
@@ -19,25 +19,25 @@ class GiftsController < ApplicationController
     end
       gift.user_id = session[:user_id]
       gift.save
-      redirect "/gifts/#{gift.id}" #makes new get req.
+      redirect "/gifts/#{gift.id}"
   end
   
-  get "/gifts/:id/edit" do # get form to edit indv. gift
+  get "/gifts/:id/edit" do
     @gift = Gift.find(params["id"])
     unauthorized
     erb :"/gifts/edit"
   end
 
   
-  put "/gifts/:id" do # submit change to gift (edited)
+  put "/gifts/:id" do
     @gift = Gift.find(params["id"])
     unauthorized
     @gift.update(description: params["gift"]["description"])
-    redirect "/gifts/#{@gift.id}" #redirects to indv. gift to show update 
+    redirect "/gifts/#{@gift.id}"
   end
 
   
-  delete "/gifts/:id" do # deletes a specific gift
+  delete "/gifts/:id" do
     @gift = Gift.find(params["id"])
     unauthorized
     @gift.delete

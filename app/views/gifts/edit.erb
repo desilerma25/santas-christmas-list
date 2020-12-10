@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-<h2>Edit your gift below:</h2><br>
+    <h2>Edit your gift below:</h2><br>
+
+    <h3>Gift you are editing: <em> <%= @gift.title %> </em> </h3>
 
     <form method="POST" action="/gifts/<%= @gift.id %>">
         <input type="hidden" name="_method" value="PUT">
-        Description: <input type="text" name="gift[description]" value="<%= @gift.description %>">
+        <h5> Description: <input type="text" name="gift[description]" value="<%= @gift.description %>"> <h5>
         <input type="submit" value="Update Gift">
     </form><br>
 
-    <a href="/logout">Log Out</a>
+    <br><a href="/logout">Log Out</a>
 </html>

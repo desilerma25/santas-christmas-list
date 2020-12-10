@@ -39,9 +39,10 @@ class GiftsController < ApplicationController
   
   delete "/gifts/:id" do
     @gift = Gift.find(params["id"])
+    @user = @gift.user_id
     unauthorized
     @gift.delete
-    redirect "/gifts"
+    redirect "/users/#{@user}"
   end
 
 

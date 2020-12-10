@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
 
-<h2>Gift Title: <%= @gift.title %></h2>
-<h4>Gift Description: <%= @gift.description %></h4>
-      
-      <% if session[:user_id] == @gift.user_id %>
+<body>
+<h1><%= @gift.title %></h1>
+<h2>Description: <br> <h4> <%= @gift.description %> </h4> </h2>
+  
+<br><br>
+<% if session[:user_id] == @gift.user_id %>
 
-        <a href="/gifts/<%= @gift.id %>/edit"> Edit gift </a>
+</body>
 
-        <form method="POST" action="/gifts/<%= @gift.id %>">
-          <input type="hidden" name="_method" value ="DELETE">
-          <input type="submit" value="Delete this gift">
-        </form>
-        
-      <% end %>
+<h5> <a href="/gifts/<%= @gift.id %>/edit"> Edit gift </a> </h5>
 
-      add a spot to return to homepage
-      add a spot to return to gift page
+
+
+<form method="POST" action="/gifts/<%= @gift.id %>">
+  <input type="hidden" name="_method" value ="DELETE">
+  <h5> <input type="submit" value="Delete this gift"> </h5>
+</form>
+    
+  <% end %>
+
+
 </html>

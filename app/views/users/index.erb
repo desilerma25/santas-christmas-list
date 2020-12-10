@@ -2,7 +2,11 @@
 <html>
 
 <h1>Users on Santa's List:</h1>
+
+<body>
+
 <% @users.each do |user| %>
 <li> <a href="/users/<%=user.id%>"><%= user.username %></a> </li>
 <% end %><br>
+</body>
 </html>

@@ -7,11 +7,11 @@ class UsersController < ApplicationController
   post "/signup" do
     user = User.new(params)
     if user.email.blank? || user.username.blank? || user.password.blank? || User.find_by_email(params["email"])
-      redirect "/signup"
+      redirect "/users/signup"
     else
       user.save
       session[:user_id] = user.id
-      redirect "/users/index"
+      redirect "/users"
     end
   end
 
@@ -25,8 +25,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect "/users" 
     else
-      redirect "/login"
-      binding.pry
+      redirect "/users/login"
     end
   end
 
@@ -38,12 +37,13 @@ class UsersController < ApplicationController
 
   get "/users/:id" do
     need_login
-    @user = User.find(params["id"]) 
+    @user = User.find_by(params["id"]) 
     erb :"/users/show"
   end
 
   get "/logout" do
     session.clear
+    flash[:message] = 'You have successfully logged out!'
     redirect "/"
   end
 

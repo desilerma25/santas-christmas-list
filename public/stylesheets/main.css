@@ -12,6 +12,7 @@
   }
 
   /* --- Welcome Page Styles --- */
+  
   body {
     background-image: url('../images/christmas_backdrop.jpg');
     background-size: cover;
@@ -73,7 +74,7 @@
 
   .sidebar {
     font-family: 'Georgia', Serif;
-    background: rgba(158, 189, 130, 0.795);
+    background:rgba(158, 189, 130, 0.795);
     border: 1px solid #ccc;
     float: right;
     padding: 2.08333333333%; /* 5px / 240px */

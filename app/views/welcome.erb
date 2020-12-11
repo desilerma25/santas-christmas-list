@@ -7,9 +7,9 @@
     margin-right: auto; 
     display: block;
   } </style>
-  <header><img src="https://render.fineartamerica.com/images/rendered/default/print/6.5/8/break/images-medium/santas-christmas-list-dixie-rogers.jpg" class="santa" alt="Santa Clause" title="He know's if you've been nice!"></header>
+  <header><img src="../images/santa.jpg" class="santa" alt="Santa Clause" title="He know's if you've been nice!"></header>
   <div class="col-md- col-md-offset-2">
-  
+
     <br><h1>Welcome to Santa's Christmas List!</h1>
 
     <div class="content">
@@ -25,6 +25,9 @@
       <% if logged_in? %>
         <a href="/logout">Log Out</a>
       <% else %>
+        <% if flash(:message) %>
+        <%= flash[:message] %>
+        <% end %>
         <h2>Log in or Sign up:</h2>
         <ul>
         <li><b>Already a user? <a href='/login'>Log In</a></li>

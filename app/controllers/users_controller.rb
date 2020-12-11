@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     erb :"/users/index"
   end
 
-  get "/users/:id" do #issue here
+  get "/users/:id" do
     need_login
     @user = User.find_by(id: params["id"]) 
     erb :"/users/show"

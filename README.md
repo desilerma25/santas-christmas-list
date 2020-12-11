@@ -12,3 +12,5 @@ Youtube Walkthrough: https://youtu.be/PMMwJ69zGNY
 Contributors: If you would like to add or tinker with this program please email me at desi.lerma96@yahoo.com to let me know. 
 
 Credits: Justin Welsh is credited for providing the initial idea of Santa's Christmas List. 
+
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) Details: https://creativecommons.org/licenses/by-nc-sa/4.0/

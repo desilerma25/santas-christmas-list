@@ -47,4 +47,5 @@ class UsersController < ApplicationController
     redirect "/"
   end
 
+
 end

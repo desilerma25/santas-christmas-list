@@ -9,7 +9,7 @@ TO GET STARTED: In your terminal, prior to the start of the program, you must do
 ATTRIBUTIONS: Thanks goes out to the wonderful Corneal gem for providing a bare bones skeleton to help kick off this project. 
 https://github.com/thebrianemory/corneal
 
-YOUTUBE WALKTHROUGH: https://youtu.be/PMMwJ69zGNY
+VIDEO WALK THROUGH: https://youtu.be/PMMwJ69zGNY
 
 CONTRIBUTORS: If you would like to add or tinker with this program please email me at desi.lerma96@yahoo.com to let me know. 
 

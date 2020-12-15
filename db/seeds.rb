@@ -9,7 +9,7 @@ Gift.create(title: "Treats", description: "Doggie treats", user_id: 2)
 
 User.create(email: "desi@test.com", username: "Desi", password: "desi123")
 Gift.create(title: "Gift Card", description: "To go to the movies", user_id: 3)
-Gift.create(title: "Gift Card", description: "To go to the movies", user_id: 3)
+Gift.create(title: "Workout Clothes", description: "Jogger pants, size medium", user_id: 3)
 
 
 User.create(email: "thanos@test.com", username: "Thanos", password: "thanos123")

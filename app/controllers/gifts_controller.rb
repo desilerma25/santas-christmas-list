@@ -13,11 +13,12 @@ class GiftsController < ApplicationController
 
   post "/gifts" do
     need_login
-    gift = Gift.new(params)
+    # gift = Gift.new(params) 
+    gift = current_user.gifts.build(params)
     if gift.title.blank? || gift.description.blank?
       redirect "/gifts/new"
     end
-      gift.user_id = session[:user_id]
+      # gift.user = current_user
       gift.save
       redirect "/gifts/#{gift.id}"
   end
@@ -55,3 +56,5 @@ class GiftsController < ApplicationController
   end
   
 end
+
+#added to show erb user = @gift.user.username
